@@ -40,7 +40,12 @@ export default function Login(){
 
     const classes = useStyles();
     const { register, handleSubmit, watch, errors } = useForm();
-    const onSubmit = data => console.log(data);
+    const onSubmit = async(data) => {
+        console.log(data);
+        const response = await fetch('http://localhost:5000/api/users');
+        const body = await response.json();
+        console.log(body);
+    }
 
     return (
         <Container component="main" className={classes.container} maxWidth="xs">
